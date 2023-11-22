@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # installed apps
+    'drf_yasg',
     'psycopg2',
     'rest_framework',
     'rest_framework_simplejwt',
@@ -98,7 +99,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
