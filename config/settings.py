@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'apps.users',
     'apps.chargers',
     'apps.shared',
+    'apps.playlists',
 ]
 
 SIMPLE_JWT = {

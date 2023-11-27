@@ -24,6 +24,7 @@ urlpatterns = [
 
     path('users/', include('apps.users.urls', namespace='users')),
     path('chargers/', include('apps.chargers.urls', namespace='chargers')),
+    path('playlists/', include('apps.playlists.urls', namespace='playlists')),
 
     # swagger
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

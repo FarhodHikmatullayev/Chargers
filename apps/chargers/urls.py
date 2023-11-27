@@ -11,5 +11,4 @@ urlpatterns = [
     path('<int:pk>/detail/', ChargerDetailApiView.as_view(), name='charger_detail'),
     path('company/<int:pk>/detail/', CompanyRetrieveApiView.as_view(), name='company_detail'),
     path('company/<int:pk>/chargers/list/', CompanyChargersListApiView.as_view(), name='company_chargers'),
-
 ]
