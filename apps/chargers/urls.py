@@ -1,14 +1,18 @@
 from django.urls import path
 
-from apps.chargers.views import CompaniesListApiView, ChargersListApiView, ChargerDetailApiView, \
-    CompanyRetrieveApiView, CompanyChargersListApiView
+from apps.chargers.views import CompaniesListCreateApiView, ChargersListApiView, \
+    ChargersRetrieveUpdateDestroyAPIView, \
+    CompanyChargersListApiView, CompanyRetrieveUpdateDestroyAPIView, ChargerCreateApiView
 
 app_name = 'chargers'
 
 urlpatterns = [
-    path('companies/list/', CompaniesListApiView.as_view(), name='companies_list'),
+    path('companies/list-create/', CompaniesListCreateApiView.as_view(), name='companies_list_create'),
     path('list/', ChargersListApiView.as_view(), name='chargers_list'),
-    path('<int:pk>/detail/', ChargerDetailApiView.as_view(), name='charger_detail'),
-    path('company/<int:pk>/detail/', CompanyRetrieveApiView.as_view(), name='company_detail'),
+    path('create/', ChargerCreateApiView.as_view(), name='chargers_create'),
+    path('<int:pk>/retrieve-update-destroy/', ChargersRetrieveUpdateDestroyAPIView.as_view(),
+         name='charger_retrieve_update_destroy'),
+    path('company/<int:pk>/retrieve-update-destroy/', CompanyRetrieveUpdateDestroyAPIView.as_view(),
+         name='company_retrieve_update_destroy'),
     path('company/<int:pk>/chargers/list/', CompanyChargersListApiView.as_view(), name='company_chargers'),
 ]

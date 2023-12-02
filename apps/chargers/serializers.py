@@ -16,12 +16,27 @@ class LocationSerializer(serializers.ModelSerializer):
 
 
 class ChargerSerializer(serializers.ModelSerializer):
-    company = CompanySerializer(read_only=True)
+    company = CompanySerializer(read_only=True, required=False)
     location = LocationSerializer(read_only=True)
 
     class Meta:
         model = Charger
         fields = '__all__'
+
+
+class ChargerCreateSerializer(serializers.ModelSerializer):
+    location = LocationSerializer(write_only=True)
+
+    class Meta:
+        model = Charger
+        fields = '__all__'
+
+    def create(self, validated_data):
+        print(validated_data)
+        location = validated_data.pop('location')
+        location = Location.objects.create(latitude=location.get('latitude'), longitude=location.get('longitude'))
+        charger = Charger.objects.create(**validated_data, location_id=location.id)
+        return charger
 
 
 class TariffSerializer(serializers.ModelSerializer):
