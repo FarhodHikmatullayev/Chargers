@@ -143,7 +143,7 @@ DATABASES = {
         'USER': config('USER'),
         'PASSWORD': config('PASSWORD'),
         'HOST': config('HOST'),
-        'PORT': config('PORT'),
+        'PORT': '5432',
     }
 }
 
@@ -181,7 +181,7 @@ USE_TZ = True
 
 MEDIA_URL = 'media/'
 
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = BASE_DIR / 'media-files'
 
 STATIC_URL = 'static/'
 
